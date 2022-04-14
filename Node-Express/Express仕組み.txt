@@ -1,0 +1,55 @@
+
+未経験からのExpress.js入門
+https://wiblok.com/js/node/express/express_index/
+
+
+接近戦に強いExpress入門　～Webサーバー、テンプレートエンジン、セッション、BASIC認証～
+https://qiita.com/riversun/items/9938531414865cd4c633
+
+
+Node.js(Express)を使ってJEPG画像をアップロードして表示するというシンプルなWebアプリケーションを作ってHerokuにデプロイしたい話
+https://qiita.com/EVA1122/items/bfaba4afa650cddb05fc
+
+Express での静的ファイルの提供
+https://expressjs.com/ja/starter/static-files.html
+
+
+
+< app.method（path、callback）>
+
+
+
+そしてresponseには、それぞれExpressアプリが提供するレスポンスメソッドが含まれています。
+
+メソッド	説明
+res.download()	ファイルのダウンロードのプロンプトを出します。
+res.end()	レスポンスプロセスを終了します。
+res.json()	JSON レスポンスを送信します。
+res.jsonp()	JSONP をサポートする JSON レスポンスを送信します。
+res.redirect()	リクエストをリダイレクトします。
+res.render()	ビュー・テンプレートをレンダリングします。
+res.send()	さまざまなタイプのレスポンスを送信します。
+res.sendFile	ファイルをオクテット・ストリームとして送信します。
+res.sendStatus()	レスポンスのステータスコードを設定して、そのストリング表現をレスポンス本文として送信します。
+
+
+< app.use() >
+
+主にミドルウェア関数の作成とルーティング制御の時に使用します。
+
+ミドルウェア関数
+アプリケーションにアクセスされた際に実行されます。
+
+app.use(function(req, res, next) {
+  console.log("hello middleware")
+  next();
+});
+
+
+
+
+Expressのerror handlingを理解し、middlewareで実装してみた
+https://note.com/shift_tech/n/n42b96d36f0cf
+
+
+

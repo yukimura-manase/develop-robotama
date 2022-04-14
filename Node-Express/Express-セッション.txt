@@ -1,0 +1,31 @@
+
+< Expressスキルアップ >
+
+
+Express.jsでJSON WEB TOKEN(JWT)の設定を行う
+https://reffect.co.jp/node-js/express-js%E3%81%A7json-web-tokenjwt%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%82%92%E8%A1%8C%E3%81%86
+
+セッション、BASIC認証
+
+接近戦に強いExpress入門　～Webサーバー、テンプレートエンジン、セッション、BASIC認証～
+https://qiita.com/riversun/items/9938531414865cd4c633
+
+
+
+
+
+Node.js + Express + express-session でセッション変数を使ってみる
+https://qiita.com/bonkoturyu/items/892552fbb9c4388c06f9
+
+
+JWT について調べた内容をまとめました => https://qiita.com/t-toyota/items/8d0ffb265845ab8cc87c
+
+Reactでの認証時にJWTをCookieに設定する方法 => https://zenn.dev/marokanatani/articles/d0777a34641d22
+
+Fullstack React GraphQL TypeScript Tutorial をやってみた #4 ~redisにsession情報を保存し、cookieを使ってログイン状態を保持するまで~
+=> https://qiita.com/theFirstPenguin/items/177ca0d09c02b0a16c9e
+
+
+[Node.js][Express]セッションを使う => https://tech.chakapoko.com/nodejs/express/session.html
+
+Node.js express セッションを使用する(express-session) => https://symfoware.blog.fc2.com/blog-entry-2541.html

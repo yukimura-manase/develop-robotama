@@ -1,0 +1,42 @@
+
+< console.log()とconsole.dir()の本当の違い >
+
+console.log()は変数の値を横方向で表示する一方、console.dir()は縦方向で表示するとある。見やすさの問題だと。ケースバイケースで、「好み」であるという。
+ンなわけあるかい。
+
+ということで本当の違いは以下の通り。
+
+・console.dir()はオブジェクトをJSON型で表示する。
+表示の仕方が、ヒエラルキーになっていて、親子関係がわかる形。
+
+・console.log()はオブジェクトをhtml/xml型で表示する
+
+簡単にいうとconsole.dirはあるオブジェクトに対してJSの利用可能な全てのプロパティ、メソッドを表示するが、console.log()はしない。
+例えば、DOMエレメントをコンソールした場合、以下のような違いがある。
+
+●console.log()の場合
+
+console.log(document.body)
+出力結果
+
+<body class="faq">
+ <header></header>
+<main>
+   <div></div>
+</main>
+<footer></footer>
+</body>
+●console.dir()の場合
+
+console.dir(document.body)
+出力結果
+
+body.faq
+ aLink:""
+ attributes:""
+ background: ""
+ baseURI:""
+
+
+
+今更聞けないconsole.log()とconsole.dir()の本当の違い => https://zenn.dev/effor001/scraps/0c1556c5c2b09d

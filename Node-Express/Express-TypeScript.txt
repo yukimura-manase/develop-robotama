@@ -1,0 +1,100 @@
+< Node-Express × TypeScript >
+
+Node-ExpressにTypeScriptを導入！
+
+    1. npx tsc --init => tsconfig.jsonを生成する！
+
+    2-1. npm install -D ts-node => 「ts-node」は、jsのトランスパイルなしにtsコードを実行してくれます。
+    
+    2-2. npm install -D ts-node-dev => 「 ts-node-dev 」も同様にjsのトランスパイルなしにtsコードを実行してくれます。
+
+    3. npm install -D typescript @types/node @types/express @types/axios @types/cors => TypeScriptや「型定義ファイ」ルのinstall
+
+        npm install -D typescript => TypeScriptを導入(-Dで開発環境のみ)
+        npm install -D @types/node => nodeの型定義ファイルをインストール
+        npm install -D @types/express
+        npm install -D @types/axios
+        npm install -D @types/cors
+
+
+    JavaScriptのライブラリは本来、JavaScript上で使用される事を想定しているので型定義が無いままに用意されていることが多いです。
+    
+    そのため、TypeScript上で型チェックの恩恵を受けながら使用するために「 @types 」から始まる「型定義ファイル」が別途用意されております。
+
+    型定義ファイルというのは、TypeScriptのコンパイラに型を教えてくれるようなものです。
+
+< package.jsonの中身 >
+
+{
+    "name": "todo-api",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "robotama": "nodemon server.ts",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "tsc:ver": "tsc -v",
+        "ts-node": "ts-node server.ts"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "bcrypt": "^5.0.1",
+        "body-parser": "^1.19.0",
+        "cookie-session": "^1.4.0",
+        "ejs": "^3.1.6",
+        "express": "^4.17.1",
+        "express-session": "^1.17.2",
+        "mysql": "^2.18.1",
+        "nodemon": "^2.0.13"
+    },
+    "devDependencies": {
+        "@types/axios": "^0.14.0",
+        "@types/cors": "^2.8.12",
+        "@types/express": "^4.17.13",
+        "@types/node": "^16.11.10",
+        "ts-node": "^10.4.0",
+        "ts-node-dev": "^1.1.8",
+        "typescript": "^4.5.2"
+    }
+}
+
+
+① npmのスクリプトをカスタマイズ！
+
+    「 npm run 」で実行するスクリプトは、カスタマイズできる！！
+
+    "scripts": {
+        "robotama": "nodemon server.ts",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "tsc:ver": "tsc -v",
+        "ts-node": "ts-node server.ts"
+    },
+
+
+
+
+TypeScriptで記述されたプログラムを実行するためには、通常「 tscコマンド 」でコンパイルした後にnodeで実行という手順を取りました。
+
+
+
+一度jsにトランスパイルしてから実行
+ts-nodeがなければ一度、tscでトランスパイルしてindex.jsを生成してから実行します。
+
+< 参照 >
+nodeをTypeScriptで利用する
+https://qiita.com/zaburo/items/0d47b3c8588bb3f96353
+
+
+
+
+expressの開発にTypeScriptを利用する
+https://qiita.com/zaburo/items/69726cc42ef774990279
+
+
+
+Node+TypeScript+ExpressでAPIサーバ構築
+https://qiita.com/pocho_sub/items/79a4735031ce11a91df7
+
+

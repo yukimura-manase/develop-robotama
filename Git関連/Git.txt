@@ -1,0 +1,47 @@
+
+< 個人開発でのGitHub記録の基本的な流 >
+
+0. git status
+=> ローカルリポジトリがあるかどうかの確認
+
+1. git init => ローカルリポジトリを生成する！
+
+2. git add -A
+
+3. git commit -m "基本機能完成！"
+
+4. git remote -v
+=> リモートリポジトリとのリンクがあるかどうかの確認
+
+5. git remote add origin(好きな名前) "GitHubのURL"
+
+6.git remote -v
+=> リモートリポジトリとのリンクができたか確認
+
+7. git push origin master (リポジトリ名)
+
+
+
+
+
+
+Gitとは
+分散型のバージョン管理システムです。
+
+
+
+ステージングエリアからファイルを削除
+コマンド）
+
+# git rm --cached [ファイル名]
+
+
+
+
+
+gitのローカルリポジトリを削除する方法
+rm -rf .git
+
+gitのローカルリポジトリを削除する方法
+https://www.codeadvisor.jp/entry/2018/02/18/124557
+

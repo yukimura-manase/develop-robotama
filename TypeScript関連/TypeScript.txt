@@ -1,0 +1,340 @@
+< TypeScriptの初期設定 >
+
+typescriptを使うためにインストール => 「 sudo npm install -g typescript 」
+
+バージョン確認 => 「 tsc -v 」
+
+npm init -y => nodeプロジェクトの初期化 package.jsonが作成されます。
+
+npx tsc --init => typescriptプロジェクトの初期化 tsconfig.jsonが作成されます。
+(npmではないので、間違えないように！)
+
+tsconfig.jsonの設定を少し変えます => 「　"sourceMap": true,　」のコメントアウトを解除する！ 
+=> これにより、色々なツールからデバッグができるようにします
+
+「index.js」と「index.ts」を両方用意しておく！ => 用意しないとエラーがでる。
+
+『ビルド用の設定』
+開いたら、メニューのTerminal → Configure Default Build Task... を選択し「tsc:build - tsconfig.json 」と検索して選択してください。
+
+そして、動作確認の為のindex.tsというファイルを作成し。 console.log(‘hoge!’);と記載しておきましょう。
+
+『デバッグ用の設定』 メニューのRun->Add Configuration... Node.jsを検索して選択してください。 ここでlaunch.jsonが生成されます
+これで準備完了です!。
+
+動作させるには、メニューの
+Terminal → Run Build Task (ビルド) 
+Run →Start Debugging (デバッグ) をします。
+
+
+0. ラクスパートナーズ・TypeScriptテキスト
+1. 「TypeScript + Node.js プロジェクトのはじめかた2020」 => https://qiita.com/notakaos/items/3bbd2293e2ff286d9f49
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+< React × TypeScriptのアプリ開発 >
+
+1.新規プロジェクトの立ち上げコマンド
+npx create-react-app react-ts-app --template typescript
+
+
+< 参照 >
+0.「ReactのプロジェクトにTypeScriptを導入する〜npm installからコンパイルまで〜」 => https://qiita.com/toshi-toma/items/080b89000ed7f0242bee
+
+1.「【TypeScript】既存のReactアプリ(create-react-app)にTypeScriptを導入する方法」=> https://naomi-homma.hatenablog.com/entry/2020/09/14/144704
+
+2.「React で TypeScript を使う環境を構築する手順（いつもどおり VSCode に ESLint と Prettier を添えます。）」=> https://multimineral-tech.com/entry/2020/12/26/113633
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+< TypeScriptで型を定義する >
+
+
+
+
+< 動的型付けと静的型付け >
+
+1.動的型付け
+	-宣言時に型を指定する必要がなく、プログラムが実行されるタイミングで自動的に型が設定される
+	-途中で型が変わってもエラーにはならない
+
+2.静的型付け
+	-宣言時に型が指定される
+	-指定された型と違う型が入るとエラーが出る
+
+< 型付けの方法 >
+
+1.明示的に型を指定する
+    -変数、関数の引数、戻り値に対して『：型』で指定することが可能
+
+2.型推論をしてもらう
+    -明示的に型を指定をしなくてもTypeScriptがプログラムの文脈から型を推論して指定をしてくれる
+
+< 型定義の対象 >
+1.変数
+2.関数の引数
+3.戻り値
+
+この3つに共通するものって何？ => 何に化けるかわからない！ => 型を定義すると安心！保守性がUPする！
+
+< 型の種類 >
+
+1.any
+anyはJavaScriptの時と同様に何でも入れることができる
+・型のチェックを放棄してしまうのでanyを乱用するとJavaScriptで書くのと変わらなくなってしまう
+
+2.unknow
+
+anyと同様に何でも入れることができるが、型チェックの放棄はして
+ 　いない型
+・型をあらかじめ指定できない時に使用する
+
+3.object
+オブジェクトの型はobjectだが、
+ 　:objectと指定すると中身のことは
+　関係なく、ただ単にオブジェクトで
+　あるということだけを伝えるので
+　中身にアクセスすることができない
+
+変数:{} = {}とすることでオブジェクトの型を
+　 指定することができる
+・指定したプロパティを省略したり、
+　余分なプロパティを追加しようとすると
+　エラーになります
+
+
+interfaceとtypeはオブジェクトの型に
+　名前をつけることが可能
+・interfaceとtypeはそれぞれ
+　interface 型の名前 {}
+　type 型の名前{}
+　で型を作成し変数: 作成した型の名前で利用
+
+< interfaceとtypeの違い >
+
+interface
+　1.オブジェクトとクラスの型だけ定義可能
+　2.拡張ができる
+	再宣言しているように見えるが
+新しい型定義を追加している
+
+type
+　1.オブジェクトとクラスの型以外にも定義可能
+　2.拡張ができない(厳密には可能)
+
+
+< 複数型の指定(( T1 & T2) と (T1 | T2)) >
+TypeScriptでは型を交差(intersection)もしくは合併(union)して利用することができる
+
+(T1 & T2)「交差型」(intersection)は、両方の要素を保有していなければいけない！
+
+(T1 | T2)「合併型」(union)は、共通する部分だけしか扱えない！
+
+
+
+< 配列 >
+変数名: 型[]　もしくは
+　変数名:Array<型> で指定が可能
+・複数指定したい場合は
+　eのように｜を用いる
+
+
+< Tuple >
+tupleは固定長の配列を型付けをする
+　tupleを用いる場合は型推論ができないので
+　明示的に型付けをする必要がある
+
+nullとundefined
+TypeScriptにはnull型、undefined型も存在する
+・null型はnullという値、undefined型はundefinedという値しかない
+・nullは値が欠如していることを意味し、
+　undefiendはあるものがまだ定義されていないことを意味する
+
+
+< 関数での型定義 >
+関数では引数と戻り値に型を指定することが可能
+　関数名 = (引数名: 引数の型): 戻り値の型 => {}
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+
+< 関数にNullable型のパラメータを使う >
+
+関数に引数を渡す時に、まだAPIからデータが取得できていなくて、nullを許容したい場合があります。この時にNullable型を使用します。
+
+次の場合はnullを許容していないため、nullを引数に渡すとエラーになります。
+
+
+function getAge(age: number) {
+  return `${age}歳です`;
+}
+console.log(getAge(20)); //20歳です
+console.log(getAge(null));  //NG
+
+ですので、number | null にようにnullを含めた共用型にすることでエラーを回避しています。number型のメソッドを使いたい場合も、型を絞り込むことによって安全に使用できます。
+
+
+function getAge(age: number | null) {
+  if (age) {
+    return `${age}歳です`;
+  } else {
+    return `年齢がわかりません`;
+  }
+}
+console.log(getAge(20)); //20歳です
+console.log(getAge(null)); //年齢がわかりません
+
+【初心者向け】TypeScript超入門#08 型安全編 => https://rpf-noblog.com/2020-07-26/start-typescript-08/
+
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+< typeof タイプガード >
+次の例では、typeofを使うことで、その条件分岐内では型が絞り込まれているので、安全に算術できます。
+
+function sum(a: number | string) {
+  if (typeof a === "number") {
+    const value = a; //const value: number
+    return value * 2;
+  } else {
+    const value = a; //const value: string
+    return `${value} ${value}`;
+  }
+}
+
+console.log(sum(100)); //200
+console.log(sum("Hey")); //Hey Hey
+console.log(sum(false)); //NG
+
+【初心者向け】TypeScript超入門#08 型安全編 => https://rpf-noblog.com/2020-07-26/start-typescript-08/
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+
+< イベントオブジェクト（event）の型定義 >
+
+type Event = <HTMLButtonElement>
+
+
+
+【初心者】React × TypeScript 基本の型定義 => https://zenn.dev/ogakuzuko/articles/react-typescript-for-beginner
+
+
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+< 型についてコンソールで知る >
+
+console.log({}) // [[Prototype]]: Object
+
+console.log([]) // [[Prototype]]: Array(0)
+
+console.log(new String) // [[Prototype]]: String [[PrimitiveValue]]: ""
+
+console.log(new Number) // [[Prototype]]: Number[[PrimitiveValue]]: 0
+
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+< TypeScript講座(Udemy) >
+
+< TypeScriptの型とJavaScriptの型 >
+TypeScriptは型検査(tsc)に通るようにする必要がある！ => Javascriptエンジンで型を検査する！
+
+タイプスクリプトコンパイラーで型検査に通るように書く必要がある！
+
+「TypeScriptエンジンの型」(TypeScriptコンパイラー:TSCが扱う型)と「JavaScriptエンジンの型」は別物と考えた方がいい！
+
+変数、引数、戻り値などの「値」に対して型を付ける！
+
+< 型推論と型注釈 >
+
+「型注釈」(型アノテーション)をしてあげなくても、「型推論」をしてくれる！
+
+基本的には、「型推論」を使用するスタンスでいい！　=> 「型推論」ができない時は、「型注釈」をしてあげる形でいい！
+
+
+
+< 参照 >
+UdemyのTypeScript講座
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+< neverの否定 >
+
+callメソッドを使用！
+
+
+voidとの混同
+関数が正常に終了することがないとき、neverが返されると知ると、直感的にvoidと同じように考えたくなるでしょう。しかし、voidは部品です。neverはうそつきです。
+
+何も返さない関数はvoidを返します。しかし、returnを返すことのない関数(または常にスローする)はneverを返します。
+
+voidは(strictNullCheckingなしで)代入することができるものですが、neverはnever以外のものに代入することはできません。
+
+
+let objA: any;
+if (typeof objA === "string") {
+  // ここでは string と確定されている！
+  // number にしか存在しないメソッドを呼ぶとコンパイルエラー！
+  // error TS2339: Property 'toFixed' does not exist on type 'string'.
+  objA.toFixed(0);
+}
+
+let objB: number = 1;
+if (typeof objB === "string") {
+  // "ありえない" パターンだとnever型になり怒られる
+  // error TS2339: Property 'toFixed' does not exist on type 'never'.
+  objB.toFixed(0);
+}
+
+この操作を行うと"ありえない"ことを表すnever型になるため、obj.toFixed(0)というstringには存在しないメソッドの呼び出しはコンパイルエラーとなります。
+
+https://typescript-jp.gitbook.io/deep-dive/type-system/never
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+< ReturnType >
+じゃあどうするかというとReturnTypeというものがTS2.8からビルトインされている。
+
+ジェネリクスを1つ受け取る型で、返り値を型にしてくれる。
+
+const foo = ()=> {
+  return {
+    foo: 1,
+    fooo: 2,
+    foooo: 3
+  }
+}
+
+type Foo = ReturnType<typeof foo>
+↓ やったか！？
+
+type Foo = {
+    foo: number;
+    fooo: number;
+    foooo: number;
+}
+やった
+
+目的達成できてよかったよかった。
+
+0.TypeScriptで関数の返り値を型に変換する(ReturnTypeを使う) => https://tech-1natsu.hatenablog.com/entry/2018/12/09/004338
+
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+< 配列やオブジェクトの型定義 >
+
+
+
+
+【TypeScript】前方が可変長の配列の型定義がうまく書けない => https://teratail.com/questions/291522
+
+複合型 => https://future-architect.github.io/typescript-guide/complex.html
+
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+< TypeScript の型定義ファイルの探索アルゴリズム >
+
+TypeScript の型定義ファイルの探索アルゴリズム
+https://numb86-tech.hatenablog.com/entry/2020/07/15/153431

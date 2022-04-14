@@ -1,0 +1,19 @@
+
+
+< 参照ドキュメント >
+Nest.jsドキュメント => https://docs.nestjs.com/
+
+未経験からのNestJS入門｜NestJSとは => https://wiblok.com/ts/nest/nest_what/
+
+Nest.jsは素晴らしい => https://qiita.com/kmatae/items/5aacc8375f71105ce0e4
+
+NestJSのススメ ～Expressを超えてゆけ～ => https://qiita.com/elipmoc101/items/9b1e6b3efa62f3c2a166
+
+NestJS入門~NestJSの基本構造を理解しよう~ => https://zenn.dev/hakushun/articles/0b0443ac6fd8d7
+
+Nuxt.jsとNest.jsで表裏TypeScriptな環境をつくる(2.バックエンド編) => https://note.com/daitasu/n/nd85a1c72350a
+
+
+< Youtube動画 >
+【NestJS入門】基礎からmongoDB、認証までを一気に解説 -Full => https://www.youtube.com/watch?v=HQ3tjl_Sh9s
+

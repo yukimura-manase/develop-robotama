@@ -1,0 +1,85 @@
+
+Promise・ALL
+
+fetchAPIの返り値は、Promiseオブジェクト！ => なので 「 await fetch(url).then() 」と言う使い方ができる！
+
+
+return new Promise()とreturn Promise.resolve()使い分け
+https://qiita.com/hey1you1/items/a9b144c94f84cd1d91b8
+
+
+< Promiseとは？ >
+
+Promise オブジェクトは、非同期処理の完了 (もしくは失敗) の結果およびその結果の値を表します。
+
+プロミス (Promise) は、作成された時点では分からなくてもよい値へのプロキシー(代行者)です。
+
+非同期のアクションの成功値または失敗理由にハンドラーを結びつけることができます。
+
+これにより、「非同期メソッドは結果の値を返す」代わりに、「未来のある時点で値を提供するプロミスを返す」ことで、「同期メソッドと同じように値を返すことができる」ようになります。
+
+
+
+「Promiseの状態」(ステート)は、以下のいずれかとなります。
+
+    1.待機 (pending): 初期状態。成功も失敗もしていません。
+        pending => 保留中・未確定・未決定
+
+    2.完了 (fulfilled): 処理が成功して完了したことを意味します。
+        fulfilled => 完了した・満たされた
+
+    3.拒否 (rejected): 処理が失敗したことを意味します。
+        rejected => 拒絶した
+
+
+// 生成されたPromiseが、pending(保留中・未決定)
+new Promise((resolve, reject)=> {
+    console.log('Promiseオブジェクトは、pending(保留中)の状態(ステート)！！');
+});
+
+// [[Prototype]]: Promise
+// [[PromiseState]]: "pending"
+// [[PromiseResult]]: undefined
+
+
+// executor の第一引数 resolve の働き
+new Promise((resolve, reject)=> {
+    resolve();
+});
+
+// [[Prototype]]: Promise
+// [[PromiseState]]: "fulfilled"
+// [[PromiseResult]]: undefined
+
+new Promise((resolve, reject)=> {
+    reject();
+});
+
+// [[Prototype]]: Promise
+// [[PromiseState]]: "rejected"
+// [[PromiseResult]]: undefined
+
+
+resolve, reject のいずれも呼び出さないときは、生成されるインスタンスの２つの内部プロパティの値は、[[PromiseState]] が “pending”（保留中）、[[PromiseResult]] が undefined となる。
+
+
+resolve を呼び出すと、生成されるインスタンスの２つの内部プロパティの値は、[[PromiseState]] が “fulfilled”（完了）、[[PromiseResult]] が resolve に渡した引数の値となる。
+
+複数のプロミスの連鎖
+promise.then(), promise.catch(), promise.finally() の各メソッドは、決定したプロミスにさらなるアクションを結びつけるために使用します。
+
+.then() メソッドは、最大で 2 つの引数を取ります。
+
+1 番目の引数は、プロミスが解決した場合のコールバック関数で、 
+
+2 番目の引数は、拒否された場合のコールバック関数です。
+
+それぞれの .then() は新たに生成されたプロミスオブジェクトを返します。このオブジェクトは、オプションで連鎖に使用することができます。例えば、このようになります。
+
+
+
+
+< 参照ドキュメント >
+MDN Promise => https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+【JavaScript】Promise のメカニズムを理解する => https://hidekazu-blog.com/javascript-promise/

@@ -1,0 +1,706 @@
+
+< Node-Expressの開発環境を構築する実行手順 >
+
+① Express-Generatorを使っての開発手順
+・express generatorをインストールする！ => グローバルインストールでOK！
+npm install -g express-generator
+
+・expressプロジェクトの作成
+express --view=ejs node-ex-app(プロジェクト名)
+
+・必要なパッケージをインストールする！
+npm install
+
+
+② Expressアプリを1から開発する手順
+
+mkdir プロジェクト名 => プロジェクトディレクトリ作成
+
+npm init
+npm init -y(すべてyes)
+
+npm install express ejs
+
+※npm install express npm install ejsと1つずつinstallコマンドを実行していくことも可能ですが、 
+
+npm intall インストールしたいパッケージ① インストールしたいパッケージ②... というようにパッケージ名を列挙することで、一度にまとめてインストールすることができます。
+
+ファイル更新時に自動でサーバーが再起動するようにしよう
+
+ページを表示することはできましたが、jsファイルの変更を反映するには、毎回サーバーを再起動する必要があります。
+
+手動でサーバーを再起動する必要がないように、ファイルが変更されると自動でサーバーを再起動してくれる「nodemon」というnpmパッケージをインストールしていきましょう。
+
+「npm install -g nodemon」
+
+nodemonを使ってサーバーを起動していきましょう。
+
+nodemonを実行するには、以下のコマンドを実行してください。(コピーしたコマンドはCtrl + Vもしくは Ctrl + Shift + V で貼り付けることができます。)
+
+Macの場合
+nodemon app.js
+
+以下の図のように表示されれば、nodemonでのサーバー起動は成功です。
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+< Expressスキルアップ >
+
+セッション、BASIC認証
+
+接近戦に強いExpress入門　～Webサーバー、テンプレートエンジン、セッション、BASIC認証～
+https://qiita.com/riversun/items/9938531414865cd4c633
+
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+< Expressでのエラーハンドリング >
+
+Expressのerror handlingを理解し、middlewareで実装してみた
+https://note.com/shift_tech/n/n42b96d36f0cf
+
+
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+< Node-ExpressでREST-APIの開発 >
+
+
+
+< ルーティングとは >
+ルーティング とは、アプリケーション・エンドポイント (URI) と、クライアント要求に対するそれらの応答の定義のことです。
+
+引用：http://expressjs.com/ja/guide/routing.html
+
+例えば、「http://localhost:3000/hogeにリクエストが来たら、○○という処理をしましょう」といった具合に定義する部分の事です。
+
+
+< ミドルウェアとは >
+ミドルウェアとは、簡単に言うとルーティングで振り分けた先の処理の事です。
+
+今回のmyappアプリで言うと、routesフォルダ配下のindex.jsとusers.jsに中に書かれています。
+サンプルとして、http://localhost:3000/users にアクセスしたら誘導される、users.jsを見てみましょう。
+
+
+
+
+
+0.「Node.js + ExpressでREST API開発を体験しよう［作成編］」=> https://qiita.com/tamura_CD/items/e3abdab9b8c5aa35fa6b
+1.「Node.js と Express を使用して Web API を構築する」=> https://docs.microsoft.com/ja-jp/learn/modules/build-web-api-nodejs-express/
+2.「Node.jsとExpressでWeb APIを作ってみよう」=> https://sbfl.net/blog/2018/08/25/nodejs-express-webapi/
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+< Expressの導入 〜プロゲート Node.js・Expressコース 1章〜 >
+
+ExpressはNode.jsでWebアプリの開発をするためのフレームワーク！
+
+1. npm => パッケージを用意するにはnpm (Node Package Manager)というシステムを使います。
+
+　・npmにはパッケージを共有・取得する機能があります。
+
+2. Expressをnpmからインストールしよう！
+
+　・npm installコマンドを使って、インターネットから自分のアプリケーションにパッケージをインストールしましょう。
+
+インストールしたExpressを利用する
+
+Expressを使うには、インストールしたパッケージの読み込みと、実際に使用するための準備が必要です。ここは定型文として覚えておきましょう。
+
+< expressを利用するための定型文 >
+const express = require('express');
+const app = express();
+
+サーバーを起動しよう！
+
+サーバーを起動すれば、サーバーがリクエストを受け取りレスポンスを返すことができるようになるのじゃ。つまり、Webアプリが画面に表示されるようになるぞ。
+
+< サーバーの起動 listenメソッド >
+
+listenメソッドを用意してapp.jsファイルを実行するとサーバーを起動することができます。
+
+listen => 待ち受け状態、待機状態、リクエストを聴く準備できとるよ〜ってこと。
+
+ファイルを実行するには「 node ファイル名 」コマンドを実行する！
+
+
+< ブラウザ表示の仕組み・流を理解しよう >
+
+1. ブラウザが「リクエスト」(処理要求・クエリ)を投げる！
+
+2. サーバーは「URL」に応じた処理を実行する！
+
+3. HTMLを返す(レスポンス)！
+
+
+< ページ表示の仕組み 〜ルーティング〜 >
+
+「/top」にリクエストが来た時に、トップ画面を表示することができます。
+
+URLに対応する処理を実行することを「ルーティング」といいます。
+
+app.get( '/top', ()=> {
+    //　トップ画面の表示処理する処理を記載する。
+})
+
+< req と res >
+
+「ルーティングの処理」では、「req」(リクエストの略)・「res」(レスポンスの略)の２つの引数を受け取ります。
+
+「req」や「res」には、リクエスト・レスポンスに関する情報が入っています。
+
+< 画面表示(レンダリング)の設定 >
+
+ブラウザに表示する見た目部分には「EJS」という形式のファイルを使い、viewsフォルダに配置します。
+
+以後、見た目を作るファイルを「ビューファイル」と呼びます。
+
+EJSについては後で詳しく説明するので、今はHTMLファイルと同じだと思っていてください。
+
+
+ルーティングの処理で「 res.render 」と書くことで、指定したビューファイルをブラウザに表示できます。
+
+app.get('/top',(req,res)=>{
+  res.render('top.ejs') // res.renderメソッドで指定したファイルを表示する！
+})
+
+< CSSの適用と画像の表示 >
+
+CSSを適用するには（1）
+
+Expressでは、CSSや画像などのファイルがどこに置かれているかを指定する必要があります。
+
+今回はpublicというフォルダにこれらのファイルを置いていきましょう。=> publicフォルダは、CSSや画像を置く場所
+
+app.use( express.static('public') )  // publicファイルのフォルダを読み込めるようにしている！
+
+CSSを適用するには（2）
+
+publicフォルダの中にcssファイルを作成します。 => publicフォルダは、CSSや画像を置く場所
+
+CSSを適用したい場合は、 EJSファイルでpublicフォルダ内のパスを指定します。
+
+
+publicフォルダに置いたデータへの参照は、「/」(ルート)から始める！
+
+
+< EJSを使って値を表示しよう >
+
+EJSは、HTMLとJavaScriptのコード両方を記述できるNode.jsのパッケージじゃ。
+
+Embedded JavaScript => 略してEJS
+
+HTMLコードの中にJSを埋め込む(Embedded・エンベディド)ことができる！
+
+EJSのインストール => 「 npm install ejs 」
+
+JavaScriptのコードを記述するには、<% %> または <%= %> タグで囲みます。
+
+ 1. <% %> で囲んだ場合はブラウザに何も表示されないので、「変数の定義」などに用います。
+
+    EJSファイル内で定数を定義するには次のように記述します。 => <% const item = 値 %>
+
+    例) <% const item = {id: 4, name: 'とまと'} %>  // 変数(JS機能)をHTMLに埋め込んでいる！
+
+ 2. 「変数の値などをブラウザに表示したい場合」は<%= %>を用います。
+
+    例) <%= item.id %>
+    　　<%= item.name %>
+
+< 配列を一覧画面に表示しよう >
+
+配列を一覧画面に表示させる！ => forEachを使ったHTMLの表示
+
+EJSを使うメリット => EJSでforEachを利用するとHTMLを直接記述するよりもスッキリ書くことができ、さらに管理しやすくなります。
+
+オブジェクトの配列を画面に表示しよう！
+
+既存のHTMLで書いたリストもEJSで表示しましょう。
+
+まずは、リストをまとめて配列を定義します。次に配列のオブジェクトを一覧画面に表示します。
+
+<% const items = [
+    {id: 1, name: 'ロボ玉試作1号機'},
+    {id: 2, name: 'ロボ玉試作2号機'},
+    {id: 3, name: 'ロボ玉試作3号機'}
+] %>
+
+forEachは画面に表示させないので <% %>で記述しましょう。
+
+
+ページ間リンク
+トップ画面のURLを
+変更しよう
+これまでトップ画面のURLを「/top」としてきましたが、このURLを「/」に変更してみましょう。「/」のURLをルートURLと言います。
+一番初めにアクセスするページはルートURLに設定することが一般的です。
+
+< 参照 >
+プロゲート Node.js・Expressコース 1章
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+< データベースを使ってみよう 〜プロゲート Node.js・Expressコース 2章〜 >
+
+このレッスンでは、データベースを使って買い物メモを追加できるようにします。
+
+データベースを用いたWebアプリの開発を学んでいきましょう。
+
+< データベースの導入 >
+
+MySQLとは　データベースを管理するツールの1つ！
+
+データベースを管理するツールはいくつかあります。今回は、その中のMySQLを使います。
+
+本来は別途MySQLをインストールする必要がありますが、今回はProgateが用意しています。
+
+MySQLのインストール
+
+MySQLを操作するには？
+
+Node.jsからMySQLを操作するにはNode.jsからMySQLに接続する必要があります。
+
+Node.jsから接続する必要がある！
+
+Node.jsをMySQLに接続するには、mysqlパッケージを利用する必要があります。パッケージのインストールは学習ⅠでExpressを準備した時と同様です。
+
+mysqlパッケージをインストールする => 「 npm install mysql 」
+
+MySQLに接続しよう
+mysqlパッケージを読み込み、createConnectionメソッドを用います。
+
+データベースに接続するための情報を定数connectionに代入しましょう。これでMySQLへの接続が完了です。
+
+const mysql = require('mysql');
+
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'progate',
+  password: 'password',
+  database: 'list_app'
+});
+
+
+< データベースの利用 >
+
+クエリを実行するには？
+connection.query('クエリ', クエリ実行後の処理)と書くことで、Node.jsからデータベースに対してクエリを実行することができます。
+
+クエリ実行後の処理
+
+クエリ実行後の処理は2つの引数を取ることができます。
+
+第1引数のerrorにはクエリが失敗したときのエラー情報が、第2引数のresultsにはクエリの実行結果（ここでは取得したメモ情報）が入ります。
+
+
+クエリを実行するには、
+connection.query('クエリ', クエリ実行後の処理);
+のように記述します。
+
+テーブルから全レコードを取得するには、
+'SELECT * FROM テーブル名' (文字列)
+のように記述します。
+
+クエリ実行後の処理は以下のように書きます。
+connection.query(
+  'クエリ',
+  (error, results) => {
+    // 処理
+  }
+);
+
+
+
+app.get('/index', (req, res) => {
+  // データベースからデータを取得する処理を書いてください
+  connection.query(
+    'SELECT * FROM items',
+    (error, results)=> {
+      console.log(results)
+      res.render('index.ejs');  
+    }
+   )
+   
+});
+
+※ console.logで出力した内容は、サーバーを起動しているターミナルに出力されます。
+
+
+< 取得した値の表示 >
+
+EJSに値を渡す => EJSはrenderメソッドから値を受け取ることができます。
+
+renderメソッドの第2引数に{プロパティ : 値}と書くことで、EJS側に値を渡すことができます。
+
+今回はデータベースから取得した値を使いましょう。
+
+app.get('/index', (req, res) => {
+  connection.query(
+    'SELECT * FROM items',
+    (error, results) => {
+      // res.renderの第２引数にオブジェクトを追加してください
+      res.render('index.ejs',{ items:results });
+    }
+  );
+});
+
+
+
+
+< 作成機能の処理の流れを確認しよう >
+
+①フォームの送信
+②データの追加
+③データ取得、ブラウザ画面表示
+
+フォームを使ったリクエスト
+メモ作成のルーティングを用意しよう
+メモ作成用のルーティングを作ります。
+
+今まではapp.getを使っていましたが、今回はapp.postを使いましょう。
+このgetやpostはメソッドと呼ばれるもので、リクエストの種類を表します。詳しくは次のスライドで説明します。
+
+< getとpostとは >
+Webでは、サーバーへリクエストするときに、どんな処理をしたいかをメソッドで伝えるようにルールが決まっています。
+
+「getメソッド」や「postメソッド」は、それぞれ下図のような処理をしたい時に使います。
+
+1. 画面を表示したい時は、GETを使う！
+
+2. データベースを変更したいときは、POSTを使う！ => ポスティングの意味合い(投函する・投稿する)
+
+app.post('/create',(req,res)=> {
+  connection.query(
+    'SELECT * FROM items',
+    (error,results)=> {
+      res.render('index.ejs',{items:results})
+    }
+  )
+})
+
+< フォームを使ったリクエスト フォームを用意しよう >
+
+フォームを作るときはHTMLの<form>タグを用います。
+
+action属性には送信先のURL、method属性には「post」か「get」をルーティングに合わせて指定します。
+
+<form action='/create' method='post'>
+    <input type="text">
+    <input type="submit" value="作成する">
+</form>
+
+
+< フォームに入力した値を受け取ろう >
+
+input要素にname属性を指定すると、右の図のようなオブジェクトの形で情報がサーバーに送信されます。
+
+よってサーバー側では「req.body.name属性名」でフォームの値を取得できます。
+
+console.log(req.body.itemName) => 入力フォームの値を確認できる！
+
+<form action="/create" method="post">
+    <input type="text" name='itemName' >
+    <input type="submit" value="作成する">
+</form>
+
+req:{
+    body:{
+        itemName:'ロボ玉' 　// name属性名:入力値(入力された値)
+    }
+}
+
+フォームの値を受け取るにはapp.jsで次のソースコードを追加する必要があります。
+
+app.use( express.urlencoded( {extended: false} ) ); => フォームの値を受け取るために必要な定型文
+
+
+< データベースへの追加 データを追加する >
+
+SELECTの時と同様にqueryメソッドを使うことで「INSERT」を実行することができます。
+
+itemsテーブルのidには「AUTO INCREMENT」を設定しているので、idの値を指定する必要はありません。
+
+フォームからの値をクエリに使うときは、VALUESに「?」を含めます。
+
+次に「connection.query()」の第2引数に「渡したい配列」を指定します。 => この配列の要素が「?」の部分に入り、実行されます。
+
+配列の形で渡す必要があるので、要注意！！
+
+テーブルにデータを追加するには、
+「 'INSERT INTO テーブル名 (カラム名) VALUES (追加する値)' 」と記述する。
+=> insert into(〜に挿入する)
+
+app.post('/create', (req, res) => {
+
+  connection.query(
+    'INSERT INTO items(name)VALUES(?)',  // ?には第二引数が入る！
+    [ req.body.itemName ],  // 配列の形で設定！
+    (error,results)=> {
+      connection.query(
+        'SELECT * FROM items',
+        (error, results) => {
+          res.render('index.ejs', {items: results});
+        }
+      );
+    }
+  )
+});
+
+
+< リダイレクトでリロード問題を解決する！ >
+
+なんでリロードをするとメモが増えてしまうんだろう...。
+
+「リロードは直前のリクエストを実行する機能」なのじゃ。そのため、一覧表示と一緒に追加処理も実行されてしまうのじゃよ。
+
+この問題を解決するために、「リダイレクト」という新しい知識を学ぼう。
+
+< リダイレクトとは？ >
+サーバーは「次はこのURLにリクエストしてね」という「レスポンス」を返すことができます。
+
+このレスポンスを受け取ったブラウザは「指定されたURLに自動的にリクエスト」します。
+
+このような別のURLに「再度リクエストさせる仕組み」を「リダイレクト」と言います。
+
+< リダイレクトの活用 >
+
+リダイレクトを用いると、追加処理後に「/index」にリクエストして一覧画面を表示することができます。
+
+これによりメモ作成後にリロードしても、追加処理が実行されないのでメモが増えません。
+
+< リダイレクトの使い方 >
+
+メモ追加後に一覧画面（/index）にリダイレクトするようにしましょう。
+
+リダイレクトするには「res.redirectメソッド」を用い、引数にURLを指定します。
+
+< リダイレクトの使いどころ >
+
+1. リダイレクトを使う場面はいくつかありますが、よくあるのは今回のように「postメソッド」でリクエストした時です。
+
+2. こういう時は「res.render」ではなく「res.redirect」を使って、getのルーティングにリダイレクトしてあげましょう。
+
+< 追加後に、リダイレクトする！ >
+app.post('/create', (req, res) => {
+  connection.query(
+    'INSERT INTO items (name) VALUES (?)',
+    [req.body.itemName],
+    (error, results) => {
+      res.redirect('/index')
+    }
+  );
+});
+
+
+< 参照 >
+プロゲート Node.js・Expressコース 2章
+
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+< プロゲート Node.js・Expressコース 3章 >
+
+< 更新機能・削除機能の実装 >
+
+削除ボタンの準備
+ルーティングを用意しよう
+メモを削除するためのルーティングを用意しましょう。データベースを変更する処理なのでpostを用います。
+
+削除にはDELETEクエリを使います。しかし現状では、サーバーはどのメモをWHEREに指定すれば良いか分からず削除できません。
+
+右のように、サーバーが削除するメモのidを受け取ることができれば、削除できるようになります。
+
+< 削除するidの受け渡し・URLで値を渡そう >
+
+メモのidを受け渡すにはURLを利用します。
+
+「リクエストするURL」(ブラウザ・フォーム側)は「/delete/3」のように「idを含める」ようにし、ルーティングのURLは「/delete/:id」のように指定します。
+
+これでURLに含まれたidを取得できるようになります。「 /:id 」の部分を「ルートパラメーター」と呼びます。
+
+< ルートパラメータを使おう >
+
+ルートパラメータを使ってみましょう。また、ルーティングに合わせてフォームの送信先URLにメモのidを含めましょう。
+
+ルートパラメータの値を受け取ろう
+
+「req.params.ルートパラメータ名」でルートパラメータの値を受け取ることができます。
+
+console.logで出力して内容を確認してみましょう。
+
+
+< DELETEクエリ・削除機能の実装 >
+ルートパラメータから取得したメモのidを用いて、DELETEクエリを実行しましょう。
+
+指定したidのデータをテーブルから削除するには、「 DELETE FROM テーブル名 WHERE id = ? 」のように記述します。
+
+
+app.post('/delete/:id', (req, res) => {
+  
+  connection.query(
+    'DELETE FROM items WHERE id = ?',
+    [ req.params.id ],
+    (error,results)=> {
+      res.redirect('/index');
+    }
+  )
+});
+
+< 編集機能の作成 >
+
+取得結果をEJSに渡そう
+
+クエリの取得結果は件数に関わらず配列になります。
+
+配列resultsから1件目の要素を取り出し、edit.ejsにitemプロパティを渡しましょう。
+
+フォームに値を表示しよう
+
+value属性に値を指定すると、フォームに初期値を表示できます。
+
+取得したメモの内容をvalue属性に指定しましょう。
+
+ <a href="/edit/<%= item.id %>">編集</a>
+
+app.get('/edit/:id', (req, res) => {
+  // 選択されたメモをデータベースから取得する処理を書いてください
+  connection.query(
+    'SELECT * FROM items WHERE id = ?',
+    [ req.params.id ],
+    (error,results)=> {
+      res.render('edit.ejs',{item:results[0]})
+    }
+  )
+});
+
+<input type="text" value='<%= item.name %>'>
+<input type="submit" value="更新する">
+
+< 更新にはUPDATEクエリを使います >
+
+メモを更新するには、フォームの値とメモのidが必要です。この2点を渡せるようにしていきましょう。
+
+ルーティングにルートパラメーターを使おう
+まずはルートパラメータを用いてidを渡します。更新のルーティングを用意しましょう。
+
+送信先URLには、事前にedit.ejsに渡していたitemのidを含めましょう。
+
+また、フォーム送信後には一覧画面へリダイレクトします。
+
+フォームの値を送信しよう
+次にname属性を追加してフォームの値を送信しましょう。
+
+
+< 情報の受け渡し方を確認しよう >
+
+ルートパラメータの値は「paramsオブジェクト」で、フォームの値は「bodyオブジェクト」で受け取ります。
+
+1. メモのidは、ルートパラメーターとparamsで受け渡す！
+
+2. 更新する値は、フォームとbodyで受け渡す！
+
+< paramsオブジェクト >
+req:{
+    params:{
+        id:1
+    }
+}
+
+< bodyオブジェクト >
+req:{
+    body:{
+        itemName:'ロボ玉'
+    }
+}
+
+
+< メモを更新しよう >
+
+・受け取ったidとフォームの値を用いてメモを更新しましょう。
+
+・クエリに複数の値を入れる時は配列の要素を増やします。
+
+・配列の要素の順番通りに「？」に入れることができます。
+
+指定したidで更新するには、
+「 UPDATE テーブル名 SET カラム名 = ? WHERE id = ? 」
+のように記述します。
+
+app.post('/update/:id', (req, res) => {
+
+  // 選択されたメモを更新する処理を書いてください
+  connection.query(
+    'UPDATE items SET name = ? WHERE id = ?',
+    [req.body.itemName, req.params.id], // ?に入るものを順に配列の形でセットする！
+    (error, results)=> {
+      res.redirect('/index');
+    }
+  )
+});
+
+< 参照 >
+プロゲート Node.js・Expressコース 3章
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+< デバッグのポイント >
+
+①エラーの内容を把握
+
+②原因の予想をたてる。
+
+③その予想を順に確認していく。
+
+この3つを丁寧にやるのがデバッグのコツじゃ。
+
+
+app.post('/create', (req, res) => {
+  connection.query(
+    'INSERT INTO items (name) VALUES (?)',
+    [req.body.itemName],
+    (error, results) => {
+      if(error){
+          console.log(error)
+      }
+      res.redirect('/index');
+    }
+  );
+});
+
+console.logを使って、可視化する！！ => どこまでは、正常に機能しているのかをつきとめる！！
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+React + Express axiosでパラメータを受け取りたい => https://teratail.com/questions/251848
+[Node.js][Express]リクエストからパラメータを取得する・POSTされたデータを取得する => https://tech.chakapoko.com/nodejs/express/params.html
+
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+< Expressレスポンス >
+
+
+
+
+Express のレスポンス関連メソッド「res.end()」「res.send()」「res.json()」の違い => https://neos21.net/blog/2019/03/12-01.html
+
+
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+< Expressエラー集 >
+
+「express.jsで”Cannot POST”(Cannot GET)となってしまう以外な原因」 => https://yuis-programming.com/?p=2016
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+
+
+< Nodeミドルウェア >
+
+Node.js＋Express＋Passport を使ってみた
+https://qiita.com/tinymouse/items/fa910bf80a038c7f9ccb
+
+
+
+Passport.js の基本的な利用方法 (Node.js & Express)
+https://qiita.com/tuneyukkie/items/b1bc2a26cfb7c480e56b
+

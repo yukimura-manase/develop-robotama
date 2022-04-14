@@ -1,0 +1,51 @@
+
+< npm とは >
+Node Package Manager の略。
+
+JavaScript 系のパッケージを管理するツール。
+
+必要とするパッケージをインストールする際、依存するパッケージもまとめてインストールしてくれる。
+
+ライセンスは Artistic License。GPL に似ているが、改造版を再配布する際に名称変更が必要な点が異なる。
+
+npm パッケージを集めたリポジトリ (npmjs.com) が運営され、40万ものパッケージが登録されている。
+
+
+
+
+とりあえず何も考えずnpm init実行してから
+npm installで好き放題ライブラリをぶちこみ（ライブラリを読み込むためにbrowserifyも使用し）
+npm runでビルド用コマンドを実行する
+
+
+
+< [npm]パッケージをバージョン指定してインストールする方法 >
+
+1.通常のインストール
+
+通常のインストールでは最新版のパッケージがインストールされます。
+
+npm install package_name
+「package_name」はインストールするパッケージ名に置き替えてください。
+
+2.バージョン指定のインストール
+バージョン指定する際にはパッケージ名の後ろに「@バージョン」をつけてインストールを行います。
+
+npm install package_name@version
+
+
+
+0. 「フロントエンド開発の３ステップ（npmことはじめ）」 => https://qiita.com/hashrock/items/15f4a4961183cfbb2658
+
+1. https://www.twilio.com/blog/npm-scripts-jp
+
+2.「npm入門」(コマンド記載が豊富) => https://www.tohoho-web.com/ex/npm.html
+
+3.「[npm]パッケージをバージョン指定してインストールする方法」=> https://codelab.website/npm-install-select-version/
+
+
+
+
+
+npmの最新バージョン確認方法とは？アップデート方法も解説！
+https://webukatu.com/wordpress/blog/34720/#npm-3

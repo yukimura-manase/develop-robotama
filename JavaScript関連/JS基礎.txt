@@ -1,0 +1,5 @@
+
+
+「ブラウザ環境」=> ECMAscript + WebAPIs
+
+「サーバー環境 (Node.js)」=> ECMAscript + CommonJS

@@ -1,0 +1,71 @@
+
+< Node.jsアプリケーションとMySQLを接続しよう >
+
+0.基本となるアプリケーションの準備
+MySQLを接続するアプリケーションを準備しましょう。
+
+1.mysqlパッケージのインストール
+
+mysqlパッケージをインストールしましょう。
+
+アプリケーションフォルダ（list-app）の直下で下記のコマンドを実行してください。
+
+「 npm install mysql 」
+
+< データベースとテーブルを作成しよう！ >
+
+今回は、以下のような構成のデータベースを使用します。カラム名や実際のデータは自由に作成してください。
+
+データベースの作り方についてはMySQLでデータベースを作成しようを参考にしてください。
+
+データベース名: list_app
+テーブル名: users
+
+< mysqlの設定情報を記述しよう >
+
+mysqlパッケージをapp.jsで読み込み、接続するMySQLの情報を記述していきましょう。
+
+app.jsに以下の接続情報を記述してください。パスワードはインストール時に自分で設定したものを使ってください。
+
+const express = require('express');
+const mysql = require('mysql');
+
+const app = express();
+
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '設定したパスワード',
+  database: 'list_app'
+});
+
+
+MySQLへの接続ができていないときにエラーを表示するようにしましょう。
+app.js
+connection.connect((err) => {
+  if (err) {
+    console.log('error connecting: ' + err.stack);
+    return;
+  }
+  console.log('success');
+});
+
+MySQLから情報を取得して表示するコードを書きましょう。今回は試しに、localhost:3000/にアクセスしたときにデータベースの内容が console.log()で出力されるようにします。
+app.js
+app.get('/', (req, res) => {
+  connection.query(
+    'SELECT * FROM users',
+    (error, results) => {
+      console.log(results);
+      res.render('hello.ejs');
+    }
+  );
+});
+
+app.listen(3000);
+最終的にapp.jsが以下のようになれば完成です。
+
+
+< 参照 >
+0.「Node.jsアプリケーションとMySQLを接続しよう！」 => https://prog-8.com/docs/nodejs-mysql
+

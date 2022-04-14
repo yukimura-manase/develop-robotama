@@ -1,0 +1,1271 @@
+< npm関連コマンド >
+
+「 npm update -g npm 」 => npmのアップデート
+
+
+
+npmの最新バージョン確認方法とは？アップデート方法も解説！
+https://webukatu.com/wordpress/blog/34720/
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+< Node関連コマンド >
+
+1.通常のインストール => 「 npm install パッケージ名 」
+
+通常のインストールでは最新版のパッケージがインストールされます。
+
+2.バージョン指定のインストール => 「 npm install パッケージ名@"バージョン番号" 」
+バージョン指定する際にはパッケージ名の後ろに「@バージョン」をつけてインストールを行います。
+
+・足りないmoduleをインストールするコマンド => npm install -g npm-install-missing
+
+・Nodeのバージョン確認 => node -v
+
+・npmのバージョン確認 => npm -v
+
+・npm run => どんな処理コマンドがあるか確認できる！
+
+< Nodeアプリの実行コマンド >
+・node 実行するファイル名 => 設定したポート番号でサーバーが立つ！
+
+npm install ejs
+
+npm install xml2js => XMLデータをパース(解析)して、JavaScriptのオブジェクトにするパッケージ
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+< Express関連コマンド >
+
+
+・セッション機能を追加 => npm install express-session
+
+npm install --save body-parser
+
+Nodemonを使用する => Nodemonはソースコードの修正を監視して自動でサーバを再起動してくれるツール
+
+1.「 sudo npm install -g nodemon 」 (グローバルインストール)
+
+2.「 npm install nodemon 」(プロジェクト内に導入)
+
+3.「 nodemon server.js 」 => nodemonなら変更を検知して自動でサーバーを再起動
+
+< 参照 >
+Nodemonを使ってNode.jsのソース変更毎に自動リロードする方法 => https://tech.windii.jp/backend/node-js/node-js-with-nodemon
+
+
+< Node-Express × TypeScript >
+
+Node-ExpressにTypeScriptを導入！
+
+    1. npm install -D typescript => TypeScriptを導入(-Dで開発環境のみ)
+
+    2. npm install -D @types/node => nodeの型定義ファイルをインストール
+
+    3. npx tsc --init => tsconfig.jsonを生成する！
+
+    4. npm install -D ts-node => 「ts-node」は、jsのトランスパイルなしにtsコードを実行してくれます。
+
+
+一度jsにトランスパイルしてから実行
+ts-nodeがなければ一度、tscでトランスパイルしてindex.jsを生成してから実行します。
+
+< 参照 >
+nodeをTypeScriptで利用する
+https://qiita.com/zaburo/items/0d47b3c8588bb3f96353
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+< HomebrewとHomebrew-cask関連コマンド >
+
+# Homebrewの動作確認
+brew
+
+# Homebrewのバージョン確認
+brew -v
+
+# Homebrewでインストールしたものを一覧表示
+brew list
+
+# Homebrewでインストールしたもの削除する
+
+brew uninstall ○○
+
+# Homebrewのバージョン確認
+brew config
+
+# Homebrew-Caskのインストール
+brew install cask
+
+# Homebrew-caskの動作確認
+brew cask
+
+# Homebrew-caskで入れられるアプリを探す
+brew cask search
+
+# 探したキーを元にHomebrew-caskでアプリケーションをインストールする（Google Chromeの場合）
+brew install google-chrome --cask
+
+# Homebrew-caskでのインストール済みのアプリケーションのリストを表示
+brew cask list
+
+
+< 超重要 >
+homebrewのcaskコマンドはオプションになりました。
+https://qiita.com/horit/items/03e6ae6599253afcd75c
+
+
+HomebrewとHomebrew-caskのインストール
+https://qiita.com/yuzukaki/items/6461079cfd0b43e55785
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+< Firebase関連コマンド >
+
+・firebase --version => version確認
+
+・npm install firebase => Firebaseのインストール
+
+・firebase hosting:disable => ホスティング設定を無効化する。取消。
+
+・firebase projects:list => プロジェクトの一覧を表示
+---------------------------------------------------------------------------------------------------------------------------------------
+
+< Macのタスクマネージャー >
+
+Macの場合は、
+プロセスの終了は、「アプリケーションの終了ダイアログ」を使い、CPUやメモリの使用状況を見る場合は、「アクティビティモニタ」を使います。
+
+    1. プロセスを強制終了させる・・・「アプリケーションの終了ダイアログ」
+    2. CPUやメモリの使用状況を確認、プロセスを強制終了させる・・・「アクティビティモニタ」
+
+タスクマネージャーの起動
+【Commandキー】 + 【Optionキー】 + 【Escキー】
+
+
+< Mac開発 ショートカットキー >
+
+# Spotlightのキーボードショートカット
+Command + スペース
+
+
+Macで開発するなら抑えておくべきショートカットキーまとめ
+https://qiita.com/ryuichi1208/items/95b835b63c31d39c7629
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+< VScode ショートカットキー >
+
+文字サイズを小さくする
+command（⌘） + マイナス（-）
+
+文字サイズを大きくする
+JISキーボード
+command（⌘） + シフト（⇧） + プラス（+）
+command（⌘） + シフト（⇧） + マイナス（-）
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+< Linux基本コマンド >
+
+・pwd
+
+# ディレクトリ内の一覧を確認
+ls
+
+# Homeディレクトリの移動
+cd
+
+# 1つ上のディレクトリへの移動
+cd ../
+
+# ディレクトリの作成
+mkdir ディレクトリ名
+
+# ファイルの作成
+touch ファイル名
+
+# 使用しているシェルを教えてくれます！ => 「 bash 」か「 zsh 」か判定する！
+echo $SHELL
+
+
+# ファイルに書き込む！
+echo 'ロボ玉' > ファイル名
+
+# ファイルの中身を確認する(ターミナル上)
+cat ファイル名
+
+# ファイルの中身を確認する(Vim画面)
+less ファイル名
+
+# ファイル名の変更
+mv 元のファイル名 新しいファイル名
+
+# ファイルの削除
+rm 消したいファイル名
+
+
+# どこに該当のアプリがあるかパスを表示する
+which python3
+
+
+
+< 特定のポート番号を使用しているプロセスを見つけ、終了する方法 >
+
+# 特定のポート番号を使用しているプロセスの確認
+lsof -i:8000(ポート番号)
+
+# 複数ポート番号を指定できる
+lsof -i:8000,8080
+
+# プロセスを終了させる
+kill 101(PID番号)
+
+
+
+【Mac】使用しているポート番号とそのポートを動かしているプログラムの確認方法
+https://qiita.com/katsuomi/items/455fa8e19e14d612caf7
+
+lsofコマンド入門
+https://qiita.com/hypermkt/items/905139168b0bc5c28ef2
+
+
+
+# Linux上で実行しているプロセスを表示するコマンド
+ps -axu
+
+    -ax => すべてのプロセスを表示する
+    -u => CPUやメモリ使用率を表示
+
+
+# grepでhttpdが含まれるものだけを表示する！
+ps -axu | grep httpd
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+< アクセス権限 >
+
+・アクセス権限で引っ掛かる時 => sudoを先頭につける！
+
+< 役立つコマンド >
+・画面をクリアにする！ => clear
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+< React関連コマンド >
+
+npx create-react-app --version
+・インストールされていなかったらインストール
+・インストールされていたらバージョン確認
+
+npx create-react-app sample-app(プロジェクト名)
+・新しいプロジェクトの作成
+
+npm start
+・Reactの仮想サーバーを立てるコマンド
+・ローカルホスト3000番
+
+
+# 本番環境用にJSファイルを1つにまとめたい場合はnpm run buildを実行するとbuildディレクトリにまとめてくれます。
+npm run build
+ls build
+
+
+# babelやwebpackやESLintの設定を細かく変更したい場合はnpm run ejectを実行します。
+configディレクトリ以下にwebpackの設定ファイルが作成され細かく設定できるようになります。
+
+npm run eject
+ls config
+
+npm install react-redux
+・reduxをインストールするためのコマンド
+
+npm install react-router-dom
+・react-routerをプロジェクトにインストールするためのコマンド
+
+npm install react-hook-form
+・React Hook Form のインストール
+
+
+< マテリアルUIのインストール >
+npm install @mui/material
+
+npm install @material-ui/core
+npm install @material-ui/icons
+npm install @material-ui/styles
+npm install @material-ui/system
+
+
+知っていると捗るcreate-react-appの設定
+https://qiita.com/geekduck/items/6f99a3da15dd39658fff#%E9%96%8B%E7%99%BA%E4%B8%AD%E3%81%ABapi%E3%82%B5%E3%83%BC%E3%83%90%E3%81%AB%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%82%92%E6%8A%95%E3%81%92%E3%81%9F%E3%81%84
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+< Next.js関連コマンド >
+
+・新規プロジェクト作成
+npx create-next-app next_app(プロジェクト名)
+
+・プロジェクト操作の基本コマンド
+npm run dev => 開発用サーバーを起動して、アプリを実行する！
+
+npm run build => アプリをビルドして完成アプリを生成する！
+
+npm start => 完成アプリを起動して動作チェックをする！
+
+npm install swr
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+< React Native関連コマンド >
+
+ReactNativeの開発ツールは、「Expo」と「ReactNative CLI」の2種類の開発ツールが存在します。
+
+① Expoを使って開発するパターン
+
+② 「 React Native CLI 」を使って開発するパターン
+
+【 React Nativeの基本的な環境構築 】
+
+1. Homebrewをインストール
+2. Node.jsをインストール
+3. Watchmanをインストール
+4. React NativeをCLIインストール
+5. Xcodeをインストール
+6. Cocoapodsのインストール
+7. JDKのインストール
+8. プロジェクトを作成しHello Worldを出力
+
+
+【Expoでの開発方法】
+
+# Expoインストール
+sudo npm install -g expo-cli => 開発ツールExpo
+
+# Expoバージョン
+expo --version
+
+# Expoログイン
+expo login
+
+# プロジェクト作成
+expo init expo-sample
+
+# Expo Developer Toolsを起動する => Expo Developer Toolsがブラウザで立ち上がります。
+expo start
+
+# キャッシュをクリアして再起動する場合
+expo start -c
+
+# APIを設定する
+expo install expo-constants
+
+
+https://docs.expo.dev/versions/latest/sdk/constants/
+
+
+ExpoでAndroidエミュレータが起動しない場合
+https://qiita.com/krile136/items/47b2e2cf2a7e586b6da3
+
+
+
+< React-Navigation(画面遷移・ルーター)の導入 >
+
+# React-Navigationのインストール
+npm install @react-navigation/native
+
+# React-Navigationのexpo対応
+expo install react-native-screens react-native-safe-area-context
+
+# createNativeStackNavigatorを使用する
+npm install @react-navigation/native-stack
+
+# Stack-Navigatorのインストール
+npm install @react-navigation/stack
+
+# react-native-webview => 外部のリソース(URI)を表示する！！
+expo install react-native-webview
+
+
+React-Navigation
+https://reactnavigation.org/docs/getting-started/
+
+
+< Reduxの導入 >
+
+# Reduxの導入
+npm install redux react-redux
+
+
+< デバッガーのインストール >
+
+# ReactNative-Debuggerのインストール
+brew update && brew install --cask react-native-debugger
+
+https://github.com/jhen0409/react-native-debugger
+
+
+# redux-devtools-extensionのインストール
+npm install redux-devtools-extension
+
+https://github.com/zalmoxisus/redux-devtools-extension
+
+
+
+
+# 画面にタブを生成するための機能
+npm install @react-navigation/bottom-tabs
+
+Bottom Tabs Navigator
+https://reactnavigation.org/docs/bottom-tab-navigator
+
+
+< iOSシュミレーター >
+
+# リロード
+コマンド + R
+
+# 設定メニュー
+コマンド + D
+
+# リモートデバッガの設定方法
+
+① 有効（ON）にする方法 
+
+    1. iOSシュミレーター上でcommand + d
+
+② 無効（OFF）にする方法
+
+    1. iOSシュミレーター上でcommand + d
+    2. 「Debug JS Remotely」を選択
+
+react-nativeの再起動の仕方を実務でreact-native書く人がまとめてみた
+https://qiita.com/kaba/items/f8f53c8e2a62e141fe1c
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+< Vue関連コマンド >
+
+# Vue-CLIのインストール
+npm install -g @vue/cli@3.5.0
+
+
+# インストールしたVueのバージョン確認
+vue -V
+
+
+# vueプロジェクトの作成
+vue create sample-app
+
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+< Python関連コマンド >
+
+# インタラクティブモード(対話モード)の起動
+python
+
+# インタラクティブモードの終了
+ctrl + D や exit() あるいは quit() 
+
+TerminalでPython使ったときの終了の仕方(Mac)
+https://qiita.com/yoshi_6r/items/a93deb1f5f5641e814ec
+
+
+< Python環境構築 >
+
+# Macには標準でPythonが搭載されている！ => 2系
+python --version
+または
+python -V
+
+# pyenvのバージョン確認
+pyenv -v
+
+# インストールしているpythonバージョンの確認
+pyenv versions
+
+pyenv を使うと、1 台のパソコンで複数バージョンの python 環境を簡単に切り替えることができる。
+
+# pyenv インストール
+brew update
+brew install pyenv
+
+# インストール可能な python のバージョン一覧
+pyenv install --list
+
+# バージョン番号を指定してpythonのインストール
+pyenv install 3.9.0(バージョン番号)
+
+pyenv install でエラーが出た時の対処法
+https://harucharuru.hatenablog.com/entry/2020/11/16/205232
+
+# グローバル設定
+pyenv global 3.9.0(バージョン番号)
+
+# Pythonのグローバル設定確認
+python --version または python -V (大文字)
+
+pyenv の使い方: Python をインストールした後でバージョンが適用されない場合の対処法（Mac / Windows）
+https://commte.net/7259
+
+    1. echo $SHELL
+
+    2. zshの場合(環境変数の設定)
+        echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+        
+        echo 'export PATH="$PYENV_ROOT/shims:$PATH"' >> ~/.zshrc
+        (パスの指定に注意！ => whichコマンドでpython3の位置を確認！)
+        
+        echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+
+        source ~/.zshrc
+
+    3.  グローバル設定
+        pyenv global 3.9.0
+    
+    4. python -V
+    で反映を確認
+
+
+Pythonの開発環境を用意しよう！（Mac）
+https://prog-8.com/docs/python-env
+
+Python３に切り替えても、勝手に２に戻ってしまう【Mac】
+https://teratail.com/questions/218797
+
+pyenvでPythonのバージョンが切り替わらないときの対処方法【M1 Mac環境】
+https://hitori-sekai.com/python/error-pyenv/
+
+pyenvを使ってMacにPythonの環境を構築する
+https://qiita.com/1000ch/items/93841f76ea52551b6a97
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+< pip関連コマンド >
+
+# Pythonインタープリタにpipが付属しているかどうかを確認
+python -m pip -V
+
+
+# インストールされているパッケージを確認
+python -m pip freeze
+または、
+python -m pip list => こちらの方がおすすめ！
+
+
+# パッケージのインストール
+python -m pip install パッケージ名
+
+# バージョン指定
+python -m pip install パッケージ名==バージョン番号
+
+# パッケージのアンインストール
+python -m pip uninstall パッケージ名
+
+
+# 一括インストール
+python -m pip install -r requirements.txt
+
+# pipのアップグレード
+python -m pip install --upgrade pip
+
+
+pipの使い方とインストール
+https://www.python-izm.com/tips/pip/
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+< Django関連のコマンド >
+
+# Djangoのインストール
+pip install Django
+
+# 最新版にアップデートする
+pip install -U Django
+
+#  「 Djangoプロジェクト 」の作成
+django-admin startproject django_app(プロジェクト名)
+
+# 「 アプリケーション 」の作成
+python manage.py startapp hello
+(3系じゃないとエラーがでる)
+
+# DjangoのWebサーバーを起動！ => プロジェクトの実行
+python manage.py runserver
+
+
+< Django モデル-DB関連 >
+
+# マイグレーションファイルを作成する！ => migration(移行)により、モデルからテーブルを作成する！！
+python manage.py makemigrations 実行プロジェクト名
+
+# マイグレーションを実行する！
+python manage.py migrate
+
+
+# DjangoDB管理者の作成
+python manage.py createsuperuser
+
+
+
+
+# (base)が表示されるようになった場合の対処法 => anacondaをインストールして使用していると発生する！
+1. conda deactivate
+
+2. conda config --set auto_activate_base False
+
+
+Macのターミナルの先頭に(base)と表示された時に表示を消す方法
+https://code-graffiti.com/base-is-displayed-at-the-top-of-the-terminal-on-mac/
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+< Git・GitHub関連のコマンド >
+
+
+< 個人開発でのGitHub記録の基本的な流 >
+
+0. git status
+    => ローカルリポジトリがあるかどうかの確認
+
+1. git init => ローカルリポジトリを生成する！
+
+2. git add -A
+
+3. git commit -m "基本機能完成！"
+
+4. git remote -v
+    => リモートリポジトリとのリンクがあるかどうかの確認
+
+5. git remote add origin(好きな名前) "GitHubのURL"
+
+6.git remote -v
+    => リモートリポジトリとのリンクができたか確認
+
+7. git push origin master (リポジトリ名)
+
+
+< ブランチ(枝・支流)の作成 >
+
+1. git branch => ブランチの状況確認(どんなブランチがあるのか？)
+
+2. git branch 「branch名」 => ブランチの生成
+
+3. git branch -d 「branch名」 => マージ済のブランチを削除する
+
+4. git branch -D 「branch名」 => マージ状況に関わらずブランチを削除する
+
+5. git checkout 「branch名」 => ブランチを切り替える
+
+
+
+① git init => gitリポジトリの生成
+
+② リモートリポジトリをクローンしてくる！
+
+    1. git clone GitHubのURL
+
+    2. git clone -b develop2  GitHubのURL
+
+ファイル名の先頭の文字を小文字→大文字にする作業で、 ローカルのファイルをそのまま修正したら、git で差分として認識されなかった。
+
+例： search.html → Search.html
+git mv でリネームしよう
+git コマンドでファイル名を変更すれば差分として認識されるので、 今度からはこのやり方だけにする！
+・git mv search.html Search.html
+
+・git restore => 指定されたファイルなどを「戻す」ことができるコマンド。
+restoreとは「戻す」という意味。
+
+
+git add -A
+
+git commit -m "軽微な修正"
+
+git remote add origin(好きな名前) "GitHubのURL"
+
+git remote -v
+
+git pull origin develop
+
+git push origin develop
+
+// git pushを強制するオプション (２つは同義)
+git push -f origin master
+git push --force origin master
+
+GitHubのwebサイトから該当コミットに記載されている「comit 〜」にもハッシュ値が記載されています。
+git reset --hard ハッシュ値
+これで特定のコミットに戻すことができます。
+masterではなくブランチの場合は切り替えを忘れずに。
+
+git reset --hard 5429637fdcbd532a21e9b7d75147d7669756f525(ハッシュ番号)
+
+< gitのローカルリポジトリを削除する方法 >
+
+「 rm -rf .git 」
+
+プロジェクトに自動で作成されるgitを削除する時などに使える！！
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+< AWS関連コマンド >
+
+
+< Webサーバー構築編 >
+
+# SSH-key(秘密鍵)の読み書き権限を設定
+chmod 600 ~/Desktop/aws-infra-ssh-key.pem
+
+# 秘密鍵を使って、EC2インスタンスにアクセス(接続)する！
+ssh -i ~/Desktop/aws-infra-ssh-key.pem ec2-user@54.248.14.37
+
+# EC2サーバーとの接続を解除する！
+exit
+
+# どのプログラムがどのポート番号で待ち受け状態にあるかを確認する！ => ルートユーザー権限でコマンドを実行するためにsudoを付与！(EC2-user)
+sudo lsof -i -n -P
+
+lsof => どのポート番号でどのプログラムが待ち受け状態にあるかを知るためのコマンド
+
+    < 表示例 >
+
+    sshd      3226     root    3u  IPv4  20052      0t0  TCP *:22 (LISTEN) =>「sshdプログラムが22番ポートで待ち受けている！！」
+
+    sshd     32234     root    3u  IPv4  51635      0t0  TCP 10.0.10.10:22->111.239.165.77:59129 (ESTABLISHED) => 「通信中」 
+
+
+# yum(Linuxのパッケージ管理ツール)のupdate
+sudo yum update -y
+
+
+# Apacheのインストール => 「httpd」(Apacheを構成する実行ファイル)
+sudo yum -y install httpd
+
+
+# systemctl(システムコントロール)コマンドで、Apatchを起動！ => systemctlコマンドはプロセスの操作を行う！
+sudo systemctl start httpd.service
+
+
+# Apatchサーバーが起動しているかどうかの確認！
+sudo systemctl status httpd.service
+
+    Active: active (running) になっていれば起動している！！
+
+
+# Linux上で実行しているプロセスを表示するコマンド
+ps -axu
+
+    -ax => すべてのプロセスを表示する
+    -u => CPUやメモリ使用率を表示
+
+
+# grepでhttpdが含まれるものだけを表示する！
+ps -axu | grep httpd
+
+    「 | 」 で左側の出力結果を右側に渡す！！ => ps -axuの出力結果を左側に渡して、httpdで検索する！
+
+
+# enableコマンドで、Apatchの自動起動・設定する！ => EC2を立ち上げたら自動起動する！
+sudo systemctl enable httpd.service
+
+
+# 自動起動設定がされているかの確認！
+sudo systemctl is-enabled httpd.service
+
+    enabled
+    が表示されれば、自動起動設定がされている！
+
+
+AWS：ゼロから実践するAmazon Web Services。手を動かしながらインフラの基礎を習得
+https://www.udemy.com/course/aws-and-infra/learn/lecture/15303458#overview
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+< Docker関連のコマンド > docker コマンドは Docker が起動していないと動作しません。
+
+Dockerを使うことで簡単に隔離された環境が構築できる！！
+
+# 動作状況の確認
+docker info
+
+# dockerのバージョン確認
+docker --version
+または、
+docker -v
+
+# docker-composeのバージョン確認
+docker-compose -v
+
+# dockerコマンド・ヘルプ
+docker --help
+
+# docker containerコマンド・ヘルプ
+docker container --help
+
+# docker imageコマンド・ヘルプ
+docker image --help
+
+
+< dockerでHello World >
+
+# 「 hello-worldのイメージ 」Dockerを実行してみる
+docker run hello-world
+
+# hello-worldイメージの検索 => docker search イメージ名
+docker search hello-world
+
+# hello-worldイメージの取得 => docker pull イメージ名
+docker pull hello-world
+
+
+
+# dockerイメージの一覧確認
+docker image ls
+
+
+
+# イメージの取得
+docker pull イメージ名
+
+# イメージからコンテナの作成と実行
+docker container run イメージ名
+
+# 
+docker container run -p 8000:8000 --name robotama イメージ名
+
+    //ポート番号の指定
+    -p
+
+# 起動中(実行中)のコンテナを一覧表示
+docker container ls
+または
+docker ps
+
+# 停止中も含めて、すべてのコンテナを一覧表示
+docker container ls -a
+または
+docker ps -a
+
+# コンテナの停止
+docker container stop コンテナ名
+
+# コンテナの削除
+docker container rm コンテナ名
+
+
+# ログの出力
+docker container logs コンテナ名
+
+
+# 
+docker container exec コンテナ名
+
+
+# dockerのお片付け！ => 使っていないイメージを片づける！！
+docker system prune -a
+
+
+【触って理解！】Docker入門 - 初心者に向けて使い方や基本コマンドを解説
+https://www.pasonatech.co.jp/workstyle/column/detail.html?p=2675
+
+
+< 利用の流れ >
+必ずしも毎回この通りじゃないけど、大雑把に利用の流れを掴むために以下の順に解説します。
+
+1. Docker Hub のイメージを検索 (search)
+2. Docker Hub から使いたいイメージを取得する (pull)
+3. イメージからコンテナを生成して起動 (run)
+4. コンテナ内でコマンド実行 (exec)
+5. コンテナを停止 (stop)
+6. コンテナをイメージ化 (commit)
+7. いらなくなったらコンテナを削除 (rm)
+8. いらなくなったらイメージを削除 (rmi)
+
+その他に以下のコマンドもよく利用します。
+
+取得済みイメージ一覧 (images)
+
+実行中コンテナ一覧 (ps)
+
+停止中も含めた全てのコンテナ一覧 (ps -a)
+
+停止中のコンテナを起動 (start)
+
+ホストとコンテナ間でのファイルコピー (cp)
+
+「 run 」コマンドは「 生成して起動 」だということに注意。
+
+    色々作業して改変した後の状態で起動したいなら、「 start 」コマンドを使う
+
+    commit してイメージ化したものから「 run 」のどちらかを使います。
+
+
+
+初心者による初心者のためのDocker入門 その１ dockerコマンド編
+https://qiita.com/k5n/items/2212b87feac5ebc33ecb
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+< vim画面時のコマンド >
+
+vim画面に入ってしまった時
+コマンドモードと挿入モードがあるようです。
+
+挿入モード画面では「escキー」を押すことでコマンドモードに移動できます。
+コマンドモードから挿入モードに移動したいときはi I a Aのいずれかのキーを押すことで移動できます。
+
+コマンドモードにてvimの終了・保存方法
+:wq 編集した内容を開いているファイルに保存して終了
+:q! 編集していても保存せずに強制終了
+
+less画面に入ってしまった時
+q less画面を終了
+
+
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+< TypeScript関連のコマンド >
+
+typescriptを使うためにインストール => 「 sudo npm install -g typescript 」
+
+バージョン確認 => 「 tsc -v 」
+
+npm init -y => nodeプロジェクトの初期化 package.jsonが作成されます。
+
+npx tsc --init => typescriptプロジェクトの初期化 tsconfig.jsonが作成されます。
+
+< React × TypeScript >
+npx create-react-app react-ts-app --template typescript
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+< emailの通知機能実装！ >
+npm install emailjs-com
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+< Jest(テスト)コマンド >
+
+Jestのインストール => 「 npm install jest --save 」 または 「 npm install --save-dev jest 」
+
+jest コマンドを使いたい場合は => 「 npm install -g jest 」
+
+テストの実行 =>「 npm test 」
+
+TypeScriptを使っているプロジェクトの場合は・・・
+ts-jestとJestの型定義ライブラリであるDefinitelyTyped(@types/jest)のインストールも必要になります。 => 「 npm install ts-jest @types/jest --save 」
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+< MySQL関連のコマンド&クエリ >
+
+# 画面のクリア
+\! clear
+
+    「 \! 」は、任意のコマンドを実行すると意味！
+
+
+# プロジェクトにmysqlパッケージのインストール
+npm install mysql
+
+「MySQLの起動」
+brew services start mysql@5.7
+または、、、
+mysql.server start
+
+「ログイン」
+mysql --user=root --password
+
+mysql>
+上記が表示されれば、ログイン成功！ 
+
+「ログアウト」
+MySQLからログアウトをしてみましょう。
+
+「 exit; 」
+
+Byeと表示されたらログアウト完了です。
+
+「MySQLの停止」
+brew services stop mysql@5.7
+または、、、
+mysql.server stop
+
+< データベースとテーブルデータの作成SQL >
+
+「データベースの作成」
+create database データベース名;
+
+「データベースの一覧確認」
+show databases;
+
+「使用するデータベースの選択」
+use データベース名;
+
+「テーブルの一覧確認」
+show tables;
+
+「テーブルの作成」
+create table テーブル名(カラムの設定);
+
+userテーブルの作成例 < users => id, name, password(3カラム)の場合 >
+
+create table users(id int unsigned auto_increment not null, name varchar(255) unique, password varchar(255), PRIMARY KEY (id));
+
+mysql> describe users;
++----------+------------------+------+-----+---------+----------------+
+| Field    | Type             | Null | Key | Default | Extra          |
++----------+------------------+------+-----+---------+----------------+
+| id       | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
+| name     | varchar(255)     | YES  | UNI | NULL    |                |
+| password | varchar(255)     | YES  |     | NULL    |                |
++----------+------------------+------+-----+---------+----------------+
+3 rows in set (0.02 sec)
+
+
+todosテーブルの作成例 < todos => id, user_id, todo, detail, handler, date, start(7カラム)の場合 >
+
+create table todos(id int unsigned auto_increment not null, user_id int not null,todo varchar(20) not null,detail varchar(300) not null,
+handler varchar(10) not null, date varchar(20) not null, start varchar(20) not null, PRIMARY KEY (id));
+
+mysql> describe todos;
++---------+------------------+------+-----+---------+----------------+
+| Field   | Type             | Null | Key | Default | Extra          |
++---------+------------------+------+-----+---------+----------------+
+| id      | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
+| user_id | int(11)          | NO   |     | NULL    |                |
+| todo    | varchar(20)      | NO   |     | NULL    |                |
+| detail  | varchar(300)     | NO   |     | NULL    |                |
+| handler | varchar(10)      | NO   |     | NULL    |                |
+| date    | varchar(20)      | NO   |     | NULL    |                |
+| start   | varchar(20)      | NO   |     | NULL    |                |
++---------+------------------+------+-----+---------+----------------+
+7 rows in set (0.03 sec)
+
+
+「テーブル内容(カラム)の詳細確認」
+describe テーブル名;
+
+「テーブル内のすべてのデータ確認」
+select * from テーブル名;
+
+「テーブルに新規追加する」
+insert into テーブル名(カラムA,カラムB) VALUES(値1,値2);
+
+insert into todos(id,user_id,todo,detail,handler,date,start) values(1,1,'Reactの学習','Reactを学ぶロボ玉','ロボ玉試作1号機','2100-12-12','1995-12-12');
+
+
+「追加したデータの確認(データの取得)」
+select * from テーブル名;
+
+mysql> select * from todos;
++----+---------+----------------+-------------------------+------------------------+------------+------------+
+| id | user_id | todo           | detail                  | handler                | date       | start      |
++----+---------+----------------+-------------------------+------------------------+------------+------------+
+|  1 |       1 | Reactの学習    | Reactを学ぶロボ玉       | ロボ玉試作1号機        | 2100-12-12 | 1995-12-12 |
++----+---------+----------------+-------------------------+------------------------+------------+------------+
+1 row in set (0.00 sec)
+
+
+「テーブルの削除」
+
+drop table テーブル名;
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+< PostgreSQL関連のコマンド >
+
+
+1. PostgreSQLの起動/停止は「 pg_ctl 」を使って行います。
+
+2. データベースへの接続や終了には「 psql 」のコマンドを使います。
+
+
+
+# 画面のクリア
+\! clear
+
+    「 \! 」は、任意のコマンドを実行すると意味！
+
+
+
+# インストール可能なバージョンを確認する
+brew search postgresql
+
+# 最新バージョンのインストール
+brew install postgresql
+
+
+# バージョン確認
+postgres --version
+
+
+# サーバー起動
+pg_ctl -D /usr/local/var/postgres start
+または、
+postgres -D /usr/local/var/postgres
+
+
+# 環境変数の設定(パスを通す) => サーバーをバックエンドで実行するための環境変数を追加！
+export PGDATA=/usr/local/var/postgres
+または、
+# 環境変数へPATHを通す(zshの場合)
+echo 'export PGDATA=/usr/local/var/postgres' >> ~/.zshrc
+source ~/.zshrc
+
+
+# バックグラウンドでサーバー起動
+pg_ctl start
+
+
+# バックグラウンドでサーバー停止
+pg_ctl stop
+
+
+# データベース一覧取得
+psql -l
+
+# ユーザアカウントを追加
+
+createuser -P Robotama(ユーザー名)
+
+    Enter password for new role:    ←パスワード入力
+
+    Enter it again:     ←確認用パスワード入力
+
+
+# DBを作る
+createdb testDB -O Robotama
+createdb testDB(DB名) -O Robotama(ユーザー名)
+
+
+# DBへアクセス・接続する！
+psql -U Robotama testDB    => ( psql -U Robotama(ユーザー名) testDB(接続するDB名) )
+
+    psql (14.1)
+    Type "help" for help.
+
+    testDB=> 
+
+    と表示されれば成功！
+
+
+< DB接続状態( データベース名=> )でのコマンド >
+
+# psqlの終了コマンド(DB接続解除・切断コマンド) => 接続終了(psqlの終了)
+\q
+
+
+# テーブルの一覧を取得するコマンド(「 testDB=> 」状態で！ )
+\d
+
+    create table robotama (id integer, name varchar(800), like varchar(800));
+
+    create table article (id integer, title text, contents text);
+
+    create table robotama (id integer, name text, like text);
+
+
+# テーブル構造の確認 => テーブルの項目(フィールド)確認
+\d テーブル名
+
+
+# DBの切替
+\c [DB名]
+
+
+
+# テーブルにデータを追加
+INSERT INTO article values (1, 'first article', 'first contents');
+
+insert into article(title, id, contents) values ('second article', 2, 'second contents');
+
+
+# 指定したテーブルのデータ一覧を取得
+select * from article;
+
+
+
+
+
+【PostgreSQL】MacでPostgreSQLデータベースの環境をつくろう！
+https://tektektech.com/psql-mac-environment/
+
+
+初心者のMac + PostgreSQL インストール
+https://qiita.com/yorokobi_kannsya/items/f77d074e382a88dae971
+
+
+Postgresコマンド一覧（コピペ）
+https://qiita.com/jerrywdlee/items/951bb28dacdc86abbf04
+
+
+
+[PostgreSQL] よく使うコマンドまとめ
+https://dev.classmethod.jp/articles/postgresql-organize-command/
+
+
+PostgreSQLの起動・接続・終了・停止コマンドとよく使うpsqlコマンド
+https://hirooooo-lab.com/development/postgresql-command-tips/
+
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+< PHP・Laravel関連のコマンド >
+
+# PHPのインストール
+brew install php
+または、
+brew install php@7.2
+
+# composerをインストール
+brew install composer
+
+    composerは、PHP関連のパッケージ管理ツール
+
+# composerコマンドでインストールを確認
+composer
+または
+composer -v
+
+
+# Laravelプロジェクトの作成
+
+composer create-project "laravel/laravel=6.*" プロジェクト名
+
+# Laravelプロジェクトのバージョン確認
+cd sample-project
+
+php artisan -v
+
+
+
+【2021年】PHP環境構築【MacOS】
+https://yurupro.cloud/2070/
+
+【Mac】PHPのインストール方法！Homebrewの使い方と環境変数の通し方！
+https://tech.amefure.com/php-homebrew
+
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
